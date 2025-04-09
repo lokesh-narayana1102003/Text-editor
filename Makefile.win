@@ -1,0 +1,48 @@
+# Project: text_editor
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = c++.exe
+CC   = mingw32-c++.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o viewtext.o spellcheck.o findreplace.o synonyms.o dictionaryops.o modifycontent.o $(RES)
+LINKOBJ  = main.o viewtext.o spellcheck.o findreplace.o synonyms.o dictionaryops.o modifycontent.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = text_editor.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before text_editor.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "text_editor.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+viewtext.o: viewtext.cpp
+	$(CPP) -c viewtext.cpp -o viewtext.o $(CXXFLAGS)
+
+spellcheck.o: spellcheck.cpp
+	$(CPP) -c spellcheck.cpp -o spellcheck.o $(CXXFLAGS)
+
+findreplace.o: findreplace.cpp
+	$(CPP) -c findreplace.cpp -o findreplace.o $(CXXFLAGS)
+
+synonyms.o: synonyms.cpp
+	$(CPP) -c synonyms.cpp -o synonyms.o $(CXXFLAGS)
+
+dictionaryops.o: dictionaryops.cpp
+	$(CPP) -c dictionaryops.cpp -o dictionaryops.o $(CXXFLAGS)
+
+modifycontent.o: modifycontent.cpp
+	$(CPP) -c modifycontent.cpp -o modifycontent.o $(CXXFLAGS)
